@@ -33,6 +33,8 @@ public class UBERStudent20191001 {
 			DayOfWeek dow = ld.getDayOfWeek();
 			date = dow.getDisplayName(TextStyle.SHORT, Locale.US).toUpperCase();
 			
+			if (date.equals("THU")) date = "THR";
+			
 			key1.set(baseNum + "," + date);
 			key2.set(trips + "," + vehicles);
 			context.write(key1, key2);
