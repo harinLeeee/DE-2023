@@ -34,7 +34,7 @@ public class UBERStudent20191001 {
 			date = dow.getDisplayName(TextStyle.SHORT, Locale.US).toUpperCase();
 			
 			key1.set(baseNum + "," + date);
-			key2.set(vehicles + "," + trips);
+			key2.set(trips + "," + vehicles);
 			context.write(key1, key2);
 		}
 	}
@@ -48,8 +48,8 @@ public class UBERStudent20191001 {
 			int tSum = 0;
 			for (Text val : values) {
 				String[] results = val.toString().split(",");
-				vSum += Integer.parseInt(results[0]);
-				tSum += Integer.parseInt(results[1]);
+				tSum += Integer.parseInt(results[0]);
+				vSum += Integer.parseInt(results[1]);
 			}
 			output.set(String.valueOf(tSum) + "," + String.valueOf(vSum));
 			context.write(key, output);
